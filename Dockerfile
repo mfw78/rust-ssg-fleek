@@ -17,5 +17,5 @@ RUN curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.19/mdbo
 FROM debian:11-slim
 RUN apt-get update -y && \
   apt-get install -y git
-COPY --from=builder /bin/zola /bin/zola
+COPY --from=builder /app/target/x86_64-unknown-linux-gnu/release/zola /bin/zola
 COPY --from=builder /bin/mdbook /bin/mdbook
